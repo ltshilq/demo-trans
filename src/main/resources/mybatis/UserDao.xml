@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.demo.dao.IUserDao">
+
+
+	<!-- 查询根据id -->
+	<select id="selectById" parameterType="Integer" resultType="com.test.demo.bean.User" >
+			SELECT * FROM test_user ts
+				WHERE ts.id = #{id} 
+	</select>
+	
+	<insert id="insert" parameterType="com.test.demo.bean.User">
+		INSERT INTO test_user
+			(id,name,age,address)
+			VALUES
+			(#{id},#{name},#{age},#{address})
+	</insert>
+</mapper>

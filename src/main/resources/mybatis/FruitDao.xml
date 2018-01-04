@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.demo.dao.FruitDao">
+
+
+	<!-- 查询根据id,id其实是dao里面的函数名称 -->
+	<select id="selectById" parameterType="Integer" resultType="com.test.demo.bean.Fruit" >
+			SELECT * FROM  fruit_market fm
+				WHERE fm.id = #{id} 
+	</select>
+	
+	<select id="priceById" parameterType="Integer" resultType="Integer">
+		SELECT 	price FROM 	fruit_market fm
+			   WHERE fm.id = #{id} 
+	</select>
+
+	
+	<select id="nameById" parameterType="Integer" resultType="String">
+		SELECT 	name FROM 	fruit_market fm
+			   WHERE fm.id = #{id} 
+	</select>
+</mapper>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.demo.dao.ComputerDao">
+
+<!-- 查询根据id,id其实是dao里面的函数名称 -->
+	<select id="getById" parameterType="Integer" resultType="com.test.demo.bean.Computer" >
+			SELECT * FROM  computer c
+				WHERE c.id = #{id} 
+	</select>
+	
+	
+	<insert id="insert" parameterType="com.test.demo.bean.Computer" >
+			INSERT INTO computer
+			(id,type,price)
+			VALUES
+			(#{id},#{type},#{price})
+	</insert>
+	
+	
+	<delete id="deleteById" parameterType="int" >
+			DELETE FROM computer 
+			WHERE id = #{id}
+	</delete>
+	
+	
+	<update id="updateComputerById" parameterType="com.test.demo.bean.Computer" >
+        update computer set type=#{type},price=#{price} where id=#{id}
+    </update>
+	
+</mapper>
